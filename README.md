@@ -259,3 +259,53 @@ P(n) = n * (a + 1 - n)
 
 * **Razon de la variacion en el incremento:** Responde al principio de economias de escala y estrategias comerciales de descuento por volumen, incentivando a mayor consumo reduciendo el costo marginal de cada unidad adicional.
 * **Impacto ante un cambio de patron:** Si el incremento fuera lineal y constante (P(n) = 10n), no existiria un incentivo economico por compra al mayor. Por otro lado, la continuidad indefinida de un patron decreciente genera inconsistencias numericas a partir de ciertos volumenes, haciendo necesaria la fijacion de un costo minimo por unidad en entornos reales.
+
+
+## Actividad 13/11
+
+#include <Servo.h>
+ 
+Servo miServo;
+ 
+void setup() {
+
+  miServo.attach(9);   // El servomotor está conectado al pin digital 9
+
+  pinMode(7, OUTPUT);  // El LED verde está conectado al pin digital 7
+
+  pinMode(8, OUTPUT);  // El LED rojo está conectado al pin digital 8
+
+}
+ 
+void loop() {
+
+  // Giro en sentido horario (0° a 180°): Se enciende el LED verde y se apaga el rojo
+
+  digitalWrite(7, HIGH);
+
+  digitalWrite(8, LOW);
+
+  for (int grados = 0; grados <= 180; grados++) {
+
+    miServo.write(grados);
+
+    delay(15);
+
+  }
+ 
+  // Giro en sentido antihorario (180° a 0°): Se enciende el LED rojo y se apaga el verde
+
+  digitalWrite(7, LOW);
+
+  digitalWrite(8, HIGH);
+
+  for (int grados = 180; grados >= 0; grados--) {
+
+    miServo.write(grados);
+
+    delay(15);
+
+  }
+
+}
+ https://teams.cloud.microsoft/l/message/48:notes/1794586446008?context=%7B%22contextType%22%3A%22chat%22%2C%22oid%22%3A%228%3Aorgid%3A10f2cfa7-cf52-4411-abd9-ba927987e469%22%7D
